@@ -1,5 +1,6 @@
 import PageHeader from "@/components/tests/PageHeader";
 import FilterBar from "@/components/tests/FilterBar";
+import TestsTable from "@/components/tests/TestsTable";
 import { getTests } from "@/lib/tests-source";
 import { getClassOptions, parseFilters, toTestRows } from "@/lib/tests";
 
@@ -19,6 +20,7 @@ export default async function Home({
     <div className="flex flex-col gap-6">
       <PageHeader />
       <FilterBar filters={filters} classOptions={classOptions} />
+      <TestsTable rows={rows.slice(0, 5)} />
     </div>
   );
 }
