@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { mkdirSync, readFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { chromium } from "playwright";
 
 const BASE = process.env.PERF_URL ?? "http://localhost:3000";
@@ -126,7 +126,7 @@ function lighthouse(chromePath) {
   };
 }
 
-const kb = (n) => `${(n / 1024).toFixed(1)} KB`;
+const kb = (n) => `${(n / 1000).toFixed(1)} kB`;
 
 const browser = await chromium.launch();
 console.log("1/3 Slow machine test (6x CPU, Slow 4G)...");
@@ -158,10 +158,16 @@ const table = [
   ["  Cumulative Layout Shift", lh.cls],
 ];
 const width = Math.max(...table.map(([k]) => k.length)) + 2;
-console.log("\n" + "=".repeat(width + 22));
-for (const [k, v] of table) console.log(k.padEnd(width) + v);
-console.log("=".repeat(width + 22));
-console.log(`Reports: ${OUT}/lighthouse.report.html, ${OUT}/lighthouse.report.json`);
+const rule = "=".repeat(width + 22);
+const summary = [
+  `npm run perf against ${BASE} at ${new Date().toISOString()}`,
+  rule,
+  ...table.map(([k, v]) => k.padEnd(width) + v),
+  rule,
+].join("\n");
+writeFileSync(`${OUT}/perf-summary.txt`, summary + "\n");
+console.log("\n" + summary);
+console.log(`Saved: ${OUT}/perf-summary.txt, ${OUT}/lighthouse.report.html, ${OUT}/lighthouse.report.json`);
 
 const failures = [];
 if (withJs.visibleRows !== 5) failures.push(`JS on shows ${withJs.visibleRows} rows, expected 5`);
