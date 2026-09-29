@@ -1,7 +1,7 @@
 # Intellishala My Tests
 
-Live: [LIVE_LINK]
-Empty state (no tests at all): [LIVE_LINK]/empty
+Live: https://intellishala-my-tests.vercel.app
+Empty state (no tests at all): https://intellishala-my-tests.vercel.app/empty
 
 ## How to run
 

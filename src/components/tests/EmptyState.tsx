@@ -44,12 +44,15 @@ export default function EmptyState(props: EmptyStateProps) {
         No tests match your filters
       </h3>
       <p className="text-sm text-muted">{description}</p>
-      <Link
-        href="/"
-        className="flex h-11 items-center rounded-lg border border-line px-3 text-sm font-medium text-brand"
-      >
-        Clear filters
-      </Link>
+      <div className="mt-1 flex flex-col items-center gap-3 sm:flex-row">
+        <Link
+          href="/"
+          className="flex h-11 items-center rounded-lg border border-line px-3 text-sm font-medium text-brand"
+        >
+          Clear filters
+        </Link>
+        <CreateTestLink />
+      </div>
     </div>
   );
 }

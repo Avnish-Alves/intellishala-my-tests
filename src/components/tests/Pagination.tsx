@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { buildQuery, type Filters } from "@/lib/tests";
 import { ChevronLeftIcon, ChevronRightIcon } from "@/components/icons";
+import PendingOverlay from "@/components/tests/PendingOverlay";
 
 const BOX =
-  "flex h-10 short:h-9 w-[45px] items-center justify-center rounded-lg border border-line text-sm";
+  "relative flex h-10 short:h-9 w-[45px] items-center justify-center rounded-lg border border-line text-sm";
 
 function pageItems(current: number, totalPages: number): (number | "gap")[] {
   if (totalPages <= 7) {
@@ -46,11 +47,12 @@ export default function Pagination({
           {current > 1 ? (
             <Link
               href={href(current - 1)}
-              prefetch={false}
+              prefetch={true}
               aria-label="Previous page"
               className={`${BOX} bg-white text-ink`}
             >
               <ChevronLeftIcon className="h-4 w-4" />
+              <PendingOverlay />
             </Link>
           ) : (
             <span
@@ -81,7 +83,7 @@ export default function Pagination({
             <li key={item} className="hidden sm:block">
               <Link
                 href={href(item)}
-                prefetch={false}
+                prefetch={item === current + 1}
                 aria-current={item === current ? "page" : undefined}
                 className={`${BOX} ${
                   item === current
@@ -90,6 +92,7 @@ export default function Pagination({
                 }`}
               >
                 {item}
+                <PendingOverlay />
               </Link>
             </li>
           ),
@@ -99,11 +102,12 @@ export default function Pagination({
           {current < totalPages ? (
             <Link
               href={href(current + 1)}
-              prefetch={false}
+              prefetch={true}
               aria-label="Next page"
               className={`${BOX} bg-white text-ink`}
             >
               <ChevronRightIcon className="h-4 w-4" />
+              <PendingOverlay />
             </Link>
           ) : (
             <span
