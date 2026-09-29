@@ -1,6 +1,6 @@
 import CreateTestLink from "@/components/tests/CreateTestLink";
 
-export default function PageHeader() {
+export default function PageHeader({ showCreate }: { showCreate: boolean }) {
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div>
@@ -11,7 +11,7 @@ export default function PageHeader() {
           All the tests you&apos;ve created, across your classes.
         </p>
       </div>
-      <CreateTestLink />
+      {showCreate && <CreateTestLink />}
     </div>
   );
 }

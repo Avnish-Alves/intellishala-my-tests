@@ -35,7 +35,7 @@ export default function MyTestsView({
 
   return (
     <>
-      <PageHeader />
+      <PageHeader showCreate={hasTests} />
 
       <section
         aria-labelledby="tests-heading"
