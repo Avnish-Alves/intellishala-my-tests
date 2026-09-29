@@ -7,7 +7,7 @@ const HEADER_CLASS =
 
 export default function TestsTable({ rows }: { rows: TestRow[] }) {
   return (
-    <div className="hidden lg:block">
+    <div className="mt-6 hidden lg:block">
       <table className="w-full table-fixed">
         <colgroup>
           <col style={{ width: "18%" }} />
