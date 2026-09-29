@@ -1,6 +1,7 @@
 import PageHeader from "@/components/tests/PageHeader";
 import FilterBar from "@/components/tests/FilterBar";
 import TestsTable from "@/components/tests/TestsTable";
+import TestsCardList from "@/components/tests/TestsCardList";
 import Pagination from "@/components/tests/Pagination";
 import EmptyState from "@/components/tests/EmptyState";
 import type { ClassOption, Filters, TestRow } from "@/lib/tests";
@@ -68,6 +69,7 @@ export default function MyTestsView({
         {hasTests && hasMatches && (
           <>
             <TestsTable rows={items} />
+            <TestsCardList rows={items} />
 
             <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <p role="status" className="text-sm text-muted">

@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  color-scheme: light;
+}
+
+@media (max-width: 1279px) {
+  html:has(#mobile-menu[open]) {
+    overflow: hidden;
+  }
+
+  #mobile-menu[open] > summary::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: rgb(31 34 39 / 0.3);
+    cursor: default;
+  }
+}

@@ -1,43 +1,17 @@
 import Link from "next/link";
 import Logo from "@/components/layout/Logo";
-import {
-  AIAssistantIcon,
-  ClassesIcon,
-  CreateTestIcon,
-  HomeworkIcon,
-  MyFilesIcon,
-  MyTestsIcon,
-  QuestionBankIcon,
-  ResultIcon,
-  SignOutIcon,
-} from "@/components/icons";
-
-const NAV_ITEMS = [
-  { label: "My Classes", href: "#", icon: ClassesIcon, active: false },
-  { label: "Create Test", href: "#", icon: CreateTestIcon, active: false },
-  { label: "My Tests", href: "#", icon: MyTestsIcon, active: true },
-  { label: "Homework", href: "#", icon: HomeworkIcon, active: false },
-  { label: "Question Bank", href: "#", icon: QuestionBankIcon, active: false },
-  { label: "My Files", href: "#", icon: MyFilesIcon, active: false },
-  { label: "Result", href: "#", icon: ResultIcon, active: false },
-  { label: "AI Assistant", href: "#", icon: AIAssistantIcon, active: false },
-];
+import { SignOutIcon } from "@/components/icons";
+import WorkspaceCard from "@/components/layout/WorkspaceCard";
+import UserProfile from "@/components/layout/UserProfile";
+import { NAV_ITEMS } from "@/components/layout/nav-items";
 
 export default function Sidebar() {
   return (
     <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col bg-white px-5 py-6 xl:flex">
       <Logo />
 
-      <div className="mt-5 rounded-xl border border-line px-3 py-2.5">
-        <p className="text-[10px] font-medium uppercase tracking-wide text-muted">
-          Workspace
-        </p>
-        <div className="mt-0.5 flex items-center justify-between gap-2">
-          <span className="text-[13px] text-ink">Demo 2</span>
-          <span className="rounded-md bg-brand px-1.5 py-0.5 text-[11px] font-medium text-white">
-            Teacher
-          </span>
-        </div>
+      <div className="mt-5">
+        <WorkspaceCard />
       </div>
 
       <nav aria-label="Main" className="mt-5 flex flex-1 flex-col gap-1">
@@ -56,11 +30,8 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      <div className="mt-5 flex items-center gap-3 px-1">
-        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-soft text-sm font-medium text-brand">
-          DT
-        </span>
-        <span className="text-sm font-medium text-ink">Demo Teacher</span>
+      <div className="mt-5">
+        <UserProfile />
       </div>
 
       <button

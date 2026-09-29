@@ -41,9 +41,11 @@ export default function SearchBox({ defaultValue }: { defaultValue: string }) {
         id={labelId}
         name="q"
         type="search"
+        enterKeyHint="search"
+        autoComplete="off"
         defaultValue={defaultValue}
         placeholder="Search Tests"
-        className="h-10 w-full rounded-lg border border-line pl-10 pr-3 text-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+        className="h-10 w-full scroll-mt-24 rounded-lg border border-line bg-white pl-10 pr-3 text-base text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand sm:text-sm"
         onChange={(e) => {
           const form = e.currentTarget.form;
           if (timerRef.current) {

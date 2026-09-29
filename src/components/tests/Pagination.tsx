@@ -40,8 +40,8 @@ export default function Pagination({
   const href = (page: number) => `/${buildQuery(filters, { page })}`;
 
   return (
-    <nav aria-label="Pagination">
-      <ul className="flex flex-wrap items-center gap-2">
+    <nav aria-label="Pagination" className="w-full sm:w-auto">
+      <ul className="flex flex-wrap items-center justify-center gap-2">
         <li>
           {current > 1 ? (
             <Link
@@ -64,17 +64,21 @@ export default function Pagination({
           )}
         </li>
 
+        <li className="px-2 text-sm text-muted sm:hidden">
+          Page {current} of {totalPages}
+        </li>
+
         {pageItems(current, totalPages).map((item, index) =>
           item === "gap" ? (
             <li
               key={`gap-${index}`}
               aria-hidden="true"
-              className="flex h-10 w-6 items-center justify-center text-sm text-muted"
+              className="hidden h-10 w-6 items-center justify-center text-sm text-muted sm:flex"
             >
               …
             </li>
           ) : (
-            <li key={item}>
+            <li key={item} className="hidden sm:block">
               <Link
                 href={href(item)}
                 prefetch={false}

@@ -36,7 +36,7 @@ export default function AutoSubmitSelect({
         name={name}
         defaultValue={defaultValue}
         onChange={(e) => submitForm(e.currentTarget.form)}
-        className="h-10 w-full appearance-none rounded-lg border border-line pl-3 pr-9 text-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+        className={`h-10 w-full scroll-mt-24 appearance-none rounded-lg border border-line bg-white pl-3 pr-9 text-base text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand sm:text-sm [&:has(option[value=""]:checked)]:text-muted [&>option]:text-ink`}
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>
