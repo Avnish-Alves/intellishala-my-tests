@@ -6,7 +6,7 @@ export default function WorkspaceCard() {
       </p>
       <div className="mt-0.5 flex items-center justify-between gap-2">
         <span className="text-[13px] text-ink">Demo 2</span>
-        <span className="rounded-md bg-brand px-1.5 py-0.5 text-[11px] font-medium text-white">
+        <span className="rounded-md bg-brand px-2 py-0.5 text-[13px] leading-[17px] text-white">
           Teacher
         </span>
       </div>

@@ -3,7 +3,7 @@ import { buildQuery, type Filters } from "@/lib/tests";
 import { ChevronLeftIcon, ChevronRightIcon } from "@/components/icons";
 
 const BOX =
-  "flex h-10 w-[45px] items-center justify-center rounded-lg border border-line text-sm";
+  "flex h-10 short:h-9 w-[45px] items-center justify-center rounded-lg border border-line text-sm";
 
 function pageItems(current: number, totalPages: number): (number | "gap")[] {
   if (totalPages <= 7) {
@@ -73,7 +73,7 @@ export default function Pagination({
             <li
               key={`gap-${index}`}
               aria-hidden="true"
-              className="hidden h-10 w-6 items-center justify-center text-sm text-muted sm:flex"
+              className="hidden h-10 short:h-9 w-6 items-center justify-center text-sm text-muted sm:flex"
             >
               …
             </li>

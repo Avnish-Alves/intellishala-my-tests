@@ -10,7 +10,7 @@ const COLORS: Record<TestStatus, string> = {
 };
 
 const SIZES: Record<"md" | "sm", string> = {
-  md: "h-[42px] px-[18px] text-base",
+  md: "h-[42px] px-3 text-sm wide:px-[18px] wide:text-base",
   sm: "h-7 px-2.5 text-xs",
 };
 

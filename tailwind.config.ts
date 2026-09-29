@@ -4,6 +4,10 @@ const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
+      screens: {
+        wide: "1440px",
+        short: { raw: "(min-width: 1024px) and (max-height: 929px)" },
+      },
       colors: {
         brand: "#0156f3",
         "brand-soft": "#e9f1fe",

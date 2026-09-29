@@ -7,20 +7,20 @@ import { NAV_ITEMS } from "@/components/layout/nav-items";
 
 export default function Sidebar() {
   return (
-    <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col bg-white px-5 py-6 xl:flex">
+    <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col bg-white px-5 py-5 xl:flex short:py-4">
       <Logo />
 
-      <div className="mt-5">
+      <div className="mt-6 short:mt-4">
         <WorkspaceCard />
       </div>
 
-      <nav aria-label="Main" className="mt-5 flex flex-1 flex-col gap-1">
+      <nav aria-label="Main" className="mt-5 flex flex-1 flex-col gap-px short:mt-3">
         {NAV_ITEMS.map(({ label, href, icon: Icon, active }) => (
           <Link
             key={label}
             href={href}
             aria-current={active ? "page" : undefined}
-            className={`flex h-11 items-center gap-3 rounded-lg px-3 text-sm font-medium ${
+            className={`flex h-11 short:h-10 items-center gap-3 rounded-lg px-3 text-sm font-medium ${
               active ? "bg-brand-soft text-brand" : "text-muted"
             }`}
           >
@@ -30,7 +30,7 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      <div className="mt-5">
+      <div className="mt-5 short:mt-3">
         <UserProfile />
       </div>
 

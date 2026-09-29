@@ -9,7 +9,7 @@ type EmptyStateProps =
 export default function EmptyState(props: EmptyStateProps) {
   if (props.variant === "no-tests") {
     return (
-      <div className="flex flex-col items-center gap-3 px-4 py-16 text-center">
+      <div className="flex flex-col items-center gap-3 px-4 py-16 text-center lg:flex-1 lg:justify-center">
         <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-soft text-brand">
           <MyTestsIcon className="h-6 w-6" />
         </span>
@@ -38,7 +38,7 @@ export default function EmptyState(props: EmptyStateProps) {
   return (
     <div
       role="status"
-      className="flex flex-col items-center gap-3 px-4 py-16 text-center"
+      className="flex flex-col items-center gap-3 px-4 py-16 text-center lg:flex-1 lg:justify-center"
     >
       <h3 className="text-lg font-semibold text-ink">
         No tests match your filters

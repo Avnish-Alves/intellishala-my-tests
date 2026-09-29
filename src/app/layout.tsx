@@ -21,7 +21,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Sidebar />
           <div className="flex min-h-screen flex-1 flex-col">
             <MobileTopBar />
-            <main className="flex-1 px-4 py-6 xl:px-8 xl:pt-8 xl:pb-11">
+            <main className="flex-1 px-4 py-6 lg:flex lg:flex-col lg:pb-[43px] xl:px-8 xl:pt-8 short:pt-5">
               {children}
             </main>
           </div>

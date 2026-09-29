@@ -3,12 +3,18 @@ import StatusPill from "@/components/tests/StatusPill";
 import SubjectLabel from "@/components/tests/SubjectLabel";
 
 const HEADER_CLASS =
-  "h-14 border-b border-line pr-4 text-left text-sm font-normal uppercase text-muted";
+  "h-14 short:h-11 border-b border-line pr-4 text-left text-sm font-normal uppercase text-muted";
 
-export default function TestsTable({ rows }: { rows: TestRow[] }) {
+export default function TestsTable({
+  rows,
+  fill = false,
+}: {
+  rows: TestRow[];
+  fill?: boolean;
+}) {
   return (
-    <div className="mt-6 hidden lg:block">
-      <table className="w-full table-fixed">
+    <div className="mt-6 hidden short:mt-4 lg:flex lg:flex-1 lg:flex-col">
+      <table className={`w-full table-fixed ${fill ? "short:max-h-[574px] short:flex-1" : ""}`}>
         <colgroup>
           <col style={{ width: "18%" }} />
           <col style={{ width: "17.4%" }} />
@@ -45,7 +51,7 @@ export default function TestsTable({ rows }: { rows: TestRow[] }) {
         </thead>
         <tbody>
           {rows.map((row) => (
-            <tr key={row.id} className="h-[106px] border-b border-line align-middle">
+            <tr key={row.id} className="h-[106px] short:h-[82px] border-b border-line align-middle">
               <td className="pr-4">
                 <p className="text-base font-medium leading-6 text-ink">
                   {row.title}
@@ -72,7 +78,7 @@ export default function TestsTable({ rows }: { rows: TestRow[] }) {
                 <StatusPill status={row.status} />
               </td>
               <td className="pr-4">
-                <span className="inline-block w-[108px] text-center text-base text-muted">
+                <span className="inline-block w-full max-w-[108px] text-center text-base text-muted">
                   {row.submissionsLabel}
                 </span>
               </td>
